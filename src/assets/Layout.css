@@ -1,0 +1,139 @@
+/* Navbar styles */
+.navbar {
+    width: 100%;
+    background-color: #850068;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2); /* Add shadow */
+}
+.navbar a {
+    color: #fff;
+}
+
+/* Left side (brand) styles */
+.navbar-left {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.brand {
+    font-size: 24px;
+    width: 200px;
+}
+
+/* Right side (user profile) styles */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 250px;
+    height: 100%;
+    background-color: #850068;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: scroll;
+    margin-top: 60px;
+    box-shadow: 3px 0px 5px rgba(0, 0, 0, 0.2); /* Add shadow */
+    transition: width 0.5s;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+
+.menu-item .link {
+    white-space: nowrap;
+}
+
+.menu-item:hover {
+    background: #444; /* Add hover background color */
+}
+
+.menu-item a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.menu-item i {
+    font-size: 20px;
+    width: 30px;
+    text-align: center;
+}
+
+/* Main content styles */
+.main-content {
+    margin-left: 250px;
+    margin-top: 60px;
+    padding: 20px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); /* Add shadow */
+    transition: margin 0.5s;
+}
+
+/* Footer styles */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #850068;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    box-shadow: 0px -3px 5px rgba(0, 0, 0, 0.2); /* Add shadow */
+}
+
+.sidebar-close .sidebar {
+    width: 60px !important;
+    transition: width 0.5s;
+}
+
+.sidebar-close .menu-text {
+        display: none;
+}
+.sidebar-close .main-content {
+    margin-left: 60px !important;
+    transition: margin 0.5s;
+}
+
+
+
+/* Define the scrollbar width and color */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* Track (the area on which the thumb slides) */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Define the scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* On hover, style the thumb */
+::-webkit-scrollbar-thumb:hover {
+    background: #000000;
+}
+.menu-text {
+    margin-left: 10px; /* Adjust the value to control the spacing */
+}
