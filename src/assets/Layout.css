@@ -137,3 +137,6 @@
 .menu-text {
     margin-left: 10px; /* Adjust the value to control the spacing */
 }
+.sub-menu.close{
+    display: none;
+}
