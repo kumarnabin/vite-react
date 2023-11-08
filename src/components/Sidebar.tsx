@@ -21,7 +21,7 @@ const MenuItem = ({label, icon, to, subMenu}) => {
                     <div className={`sub-menu ${isSubMenuOpen ? '' : 'close'}`}>
                         <div>
                             {subMenu.map((subItem, subIndex) => (
-                                <div>
+                                <div key={subIndex}>
                                     <NavLink to={subItem.to} key={subIndex} className="link">
                                         <span className="menu-text">{subItem.label}</span>
                                     </NavLink>
