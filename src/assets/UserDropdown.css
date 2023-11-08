@@ -1,0 +1,54 @@
+/* User Dropdown container */
+.user-dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* User Dropdown button */
+.user-dropdown-button {
+  background-color: #3498db;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  width: 122px;
+  text-align: center;
+}
+
+/* User Dropdown button hover effect */
+.user-dropdown-button:hover {
+  background-color: #2980b9;
+}
+
+/* User Dropdown menu */
+.user-dropdown-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #850068;
+  border: 1px solid #d4d4d4;
+  border-top: none;
+  min-width: 120px;
+  z-index: 1;
+  display: none;
+}
+
+/* User Dropdown menu items */
+.user-dropdown-menu li {
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* User Dropdown menu item hover effect */
+.user-dropdown-menu li:hover {
+  background-color: #ddd;
+}
+
+/* Show the User Dropdown menu when the button is clicked */
+.user-dropdown-container:hover .user-dropdown-menu {
+  display: block;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBars} from "@fortawesome/free-solid-svg-icons";
+import UserDropdown from "./UserDropdown"
 
 function Navbar({handleToggleSidebar}) {
 
@@ -15,13 +16,8 @@ function Navbar({handleToggleSidebar}) {
                 </div>
             </div>
             <div className="navbar-right">
-                <div className="user-profile">Admin
-                    <a title="logout" href="#" id="logout">
-                        <i className="fas fa-sign-out"></i>
-                    </a>
-                </div>
+              <UserDropdown/>
             </div>
-
         </nav>);
 }
 

@@ -1,0 +1,20 @@
+/* Context Menu */
+.context-menu {
+  position: fixed;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 5px 0;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+}
+
+/* Context Menu Item */
+.context-menu-item {
+  padding: 5px 20px;
+  cursor: pointer;
+}
+
+/* Context Menu Item Hover Effect */
+.context-menu-item:hover {
+  background-color: #f0f0f0;
+}
