@@ -1,10 +1,14 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {NavLink} from 'react-router-dom';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCog, faLineChart as faChart, faUser} from '@fortawesome/free-solid-svg-icons';
+import {BiSolidChevronsDown} from "react-icons/bi";
 
-const MenuItem = ({label, icon, to, subMenu}) => {
+const MenuItem = ({label, icon, to, type}) => {
     const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
+    useEffect(() => {
+
+    }, []);
 
     const toggleSubMenu = () => {
         setIsSubMenuOpen(!isSubMenuOpen);
@@ -12,30 +16,18 @@ const MenuItem = ({label, icon, to, subMenu}) => {
 
     return (
         <div>
-            {subMenu ? (
-                <div className="menu-item">
-                    <div className="link" onClick={toggleSubMenu}>
-                        <FontAwesomeIcon icon={icon}/>
-                        <span className="menu-text">{label}</span>
-                    </div>
-                    <div className={`sub-menu ${isSubMenuOpen ? '' : 'close'}`}>
-                        <div>
-                            {subMenu.map((subItem, subIndex) => (
-                                <div key={subIndex}>
-                                    <NavLink to={subItem.to} key={subIndex} className="link">
-                                        <span className="menu-text">{subItem.label}</span>
-                                    </NavLink>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
+            {type == 'divider' ? (
+                <div className="menu-item-divider">
+                    <FontAwesomeIcon icon={icon}/>
+                    <span className="menu-text">{label}</span>
+                    <span style={{float:"right"}}> <BiSolidChevronsDown/> </span>
                 </div>
-            ) : (<div className="menu-item">
-                    <NavLink to={to} className="link">
+            ) : (< >
+                    <NavLink to={to} className="menu-item link" activeClassName="active">
                         <FontAwesomeIcon icon={icon}/>
                         <span className="menu-text">{label}</span>
                     </NavLink>
-                </div>
+                </>
             )}
         </div>
     );
@@ -47,11 +39,10 @@ const menuItems = [
     {
         label: 'Settings',
         icon: faCog,
-        subMenu: [
-            {label: 'General', to: '/settings/general'},
-            {label: 'Security', to: '/settings/security'},
-        ],
+        type: 'divider'
     },
+    {label: 'General', icon: faUser, to: '/settings/general'},
+    {label: 'Security', icon: faUser, to: '/settings/security'},
 ];
 
 function Sidebar() {
@@ -62,8 +53,8 @@ function Sidebar() {
                     key={index}
                     label={menuItem.label}
                     icon={menuItem.icon}
-                    to={menuItem.to}
-                    subMenu={menuItem?.subMenu}
+                    to={menuItem?.to}
+                    type={menuItem?.type}
                 />
             ))}
         </div>

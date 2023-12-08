@@ -12,6 +12,7 @@
     height: 60px;
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2); /* Add shadow */
 }
+
 .navbar a {
     color: #fff;
 }
@@ -46,7 +47,7 @@
     left: 0;
     overflow-y: scroll;
     margin-top: 60px;
-    box-shadow: 3px 0px 5px rgba(0, 0, 0, 0.2); /* Add shadow */
+    box-shadow: 3px 0 5px rgba(0, 0, 0, 0.2); /* Add shadow */
     transition: width 0.5s;
 }
 
@@ -58,19 +59,26 @@
     transition: background 0.3s;
 }
 
+.menu-item-divider {
+    padding: 5px;
+    border-top: 1px solid #888888;
+    border-bottom: 1px solid #888888;
+    background: #645b5b;
+}
+
 
 .menu-item .link {
     white-space: nowrap;
 }
 
-.menu-item:hover {
+.menu-item:hover, .active {
     background: #444; /* Add hover background color */
 }
 
-.menu-item a {
+a.menu-item {
     color: #fff;
     text-decoration: none;
-    margin-left: 10px;
+    padding-left: 16px;
 }
 
 .menu-item i {
@@ -101,18 +109,18 @@
 }
 
 .sidebar-close .sidebar {
-    width: 60px !important;
+    width: 50px !important;
     transition: width 0.5s;
 }
 
 .sidebar-close .menu-text {
-        display: none;
-}
-.sidebar-close .main-content {
-    margin-left: 60px !important;
-    transition: margin 0.5s;
+    display: none;
 }
 
+.sidebar-close .main-content {
+    margin-left: 50px !important;
+    transition: margin 0.5s;
+}
 
 
 /* Define the scrollbar width and color */
@@ -134,9 +142,11 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #000000;
 }
+
 .menu-text {
     margin-left: 10px; /* Adjust the value to control the spacing */
 }
-.sub-menu.close{
+
+.sub-menu.close {
     display: none;
 }

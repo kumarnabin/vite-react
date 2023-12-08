@@ -1,8 +1,12 @@
 import React from 'react';
+import ReactInput from "../components/forms/ReactInput";
 
 function Profile() {
 
     return (<div>
+        <form action="#">
+            <ReactInput type="email" name="email"/>
+        </form>
         <h1>Profile</h1>
         <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde in totam

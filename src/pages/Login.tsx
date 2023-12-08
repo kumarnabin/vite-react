@@ -1,8 +1,9 @@
 import React from 'react';
-import {computed, signal} from "@preact/signals-react";
+import {signal} from "@preact/signals-react";
 
-const emailSignal = signal('');
-const passwordSignal = signal('');
+
+const formData = signal({email: '', password: ''});
+const formErrors = signal({email: '', password: ''});
 const isValidEmail = (email) => {
     const regex = /^[\w-.]+@([\w-]+.)+[a-z]{2,}$/;
     return regex.test(email);
@@ -12,36 +13,58 @@ const isValidPassword = (password) => {
     return strongPasswordRegex.test(password);
 };
 
-const isEmailValid = computed(() => isValidEmail(emailSignal.value));
-const isPasswordValid = computed(() => isValidPassword(passwordSignal.value));
 
-function Login() {
-
-
-    return (
-        <form>
-            <div>
-                <label>Email:</label>
-                <input
-                    type="email"
-                    value={emailSignal.value}
-                    onChange={(event) => emailSignal.value = event.target.value}
-                />
-                {isEmailValid.value ? null : <p style={{color: "red"}}>Invalid email</p>}
-            </div>
-            <div>
-
-                <label>Password:</label>
-                <input
-                    type="password"
-                    value={passwordSignal.value}
-                    onChange={(event) => passwordSignal.value = event.target.value}
-                />
-                {isPasswordValid.value ? null : <p style={{color: "red"}}>Invalid password</p>}
-            </div>
-            <button disabled={!isEmailValid.value && !isPasswordValid.value}>Submit</button>
-        </form>
-    );
+const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!isValidEmail(formData.value.email)) {
+        formErrors.value = {...formErrors.value, email: 'Email is invalid'};
+    } else {
+        formErrors.value = {...formErrors.value, email: ''};
+    }
+    if (!isValidPassword(formData.value.password)) {
+        formErrors.value = {...formErrors.value, password: 'Password is invalid'};
+    } else {
+        formErrors.value = {...formErrors.value, password: ''};
+    }
+    if (formData.value.email == 'admin@gmail.com' && formData.value.password == 'password') {
+        alert('Login successful');
+    }
 }
+const handleChange = e => {
+    formData.value = {...formData.value, [e.target.name]: e.target.value}
+}
+
+
+const Login = () => {
+        return (
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Email:
+                    <input
+                        type="email"
+                        value={formData.value.email}
+                        name="email"
+                        onChange={handleChange}
+                    />
+                    {formErrors.value.email !== '' && <div style={{color: 'red'}}>{formErrors.value.email}</div>}
+                </label>
+                <br/>
+                <label>
+                    Password:
+                    <input
+                        type="password"
+                        value={formData.value.password}
+                        name="password"
+                        onChange={handleChange}
+                    />
+                    {formErrors.value.password !== '' && <div style={{color: 'red'}}>{formErrors.value.password}</div>}
+                </label>
+                <br/>
+                <button type="submit">Submit</button>
+            </form>
+        );
+    }
+;
+
 
 export default Login;
